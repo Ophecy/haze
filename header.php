@@ -7,7 +7,7 @@
 
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/PNG" href="images/logo.PNG" />
+	<link rel="icon" type="image/png" href="images/logo.png" />
 	<link href="https://fonts.googleapis.com/css?family=Dosis|Lobster|Montserrat|Oxygen|Raleway" rel="stylesheet">
 	<!-- Add Proxima Libre (external foundry) -->
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -28,7 +28,7 @@
 	<header id="mainHeader">
 		<a href="index.php" class='head'>
 			<div class="element">
-				<h1><img id="logo" src="images/logo.PNG" alt="Logo">Haze<span class="lightText">.com</span></h1>
+				<h1><img id="logo" src="images/logo.png" alt="Logo">Haze<span class="lightText">.com</span></h1>
 			</div>
 		</a>
 		<nav id="menuSecondaire" class="d-flex justify-content-between">

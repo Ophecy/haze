@@ -4,177 +4,133 @@ require_once 'inc/functions.php'
 
 <?php
 
-	if(!empty($_POST)){
-		$errors=array();
-		require_once 'inc/db.php';
+if (!empty($_POST)) {
+	$errors = array();
+	require_once 'inc/db.php';
 
-		if (empty($_POST['username']) || !preg_match(('/^[a-zA-Z0-9_]+$/'), $_POST['username'])) {
-			$errors['username']= "Vous n'avez pas entré de pseudo";
-		} else {
-			$req = $pdo->prepare('SELECT id FROM users WHERE username=?');
-			$req->execute([$_POST['username']]);
-			$user = $req->fetch();
-			if ($user) {
-				$errors['username']= 'ce pseudo est deja pris';
-			}
-			}
-
-		if (!preg_match(('/^[a-zA-Z0-9_]+$/'), $_POST['username'])) {
-			$errors['username']="votre pseudo est invalide";
+	if (empty($_POST['username']) || !preg_match(('/^[a-zA-Z0-9_]+$/'), $_POST['username'])) {
+		$errors['username'] = "Vous n'avez pas entré de pseudo";
+	} else {
+		$req = $pdo->prepare('SELECT id FROM users WHERE username=?');
+		$req->execute([$_POST['username']]);
+		$user = $req->fetch();
+		if ($user) {
+			$errors['username'] = 'ce pseudo est deja pris';
 		}
-
-		if (empty($_POST['email'])) {
-			$errors['email']= "Vous n'avez pas entré d'email";
-		} else {
-			$req = $pdo->prepare('SELECT id FROM users WHERE email=?');
-			$req->execute([$_POST['email']]);
-			$user = $req->fetch();
-			if ($user) {
-				$errors['email']= 'cet email est deja enregistré';
-			}
-			}
-
-		if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-			$errors['email']= "Votre email est invalide";
-		}
-
-		if (empty($_POST['password'])) {
-			$errors['password']= "Vous n'avez pas entré de mot de passe";
-		}
-
-		if ($_POST['conf']!=$_POST['password']) {
-			$errors['confirmation']= "vos mots de passe ne correspondent pas";
-		}
-
-		if (empty($_POST['nom'])) {
-			$errors['nom']= "Vous n'avez pas entré votre nom";
-		}
-
-		if (empty($_POST['prenom'])) {
-			$errors['prenom']= "Vous n'avez pas entré votre prenom";
-		}
-
-		if (empty($_POST['age'])) {
-			$errors['age']= "Vous n'avez pas entré votre age";
-		}
-
-		if (empty($_POST['poids'])) {
-			$errors['poids']= "Vous n'avez pas entré votre poids";
-		}
-
-		if(empty($errors)){
-			$req=$pdo->prepare('INSERT INTO users SET username=?, password=?,email=?,nom=?,prenom=?,age=?,sexe=?,poids=?,fume=?,drugs=?,sport=?,dodo=?');
-
-			$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-
-			$req->execute([$_POST['username'],$password,$_POST['email'],$_POST['nom'],$_POST['prenom'],$_POST['age'],$_POST['sexe'],$_POST['poids'],$_POST['fume'],$_POST['drugs'],$_POST['sport'],$_POST['dodo']]);
-            $_SESSION['flash'] ['success'] = "Votre compte a été créé";
-
-		}
-		
 	}
+
+	if (!preg_match(('/^[a-zA-Z0-9_]+$/'), $_POST['username'])) {
+		$errors['username'] = "votre pseudo est invalide";
+	}
+
+	if (empty($_POST['email'])) {
+		$errors['email'] = "Vous n'avez pas entré d'email";
+	} else {
+		$req = $pdo->prepare('SELECT id FROM users WHERE email=?');
+		$req->execute([$_POST['email']]);
+		$user = $req->fetch();
+		if ($user) {
+			$errors['email'] = 'cet email est deja enregistré';
+		}
+	}
+
+	if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+		$errors['email'] = "Votre email est invalide";
+	}
+
+	if (empty($_POST['password'])) {
+		$errors['password'] = "Vous n'avez pas entré de mot de passe";
+	}
+
+	if ($_POST['conf'] != $_POST['password']) {
+		$errors['confirmation'] = "vos mots de passe ne correspondent pas";
+	}
+
+	if (empty($_POST['nom'])) {
+		$errors['nom'] = "Vous n'avez pas entré votre nom";
+	}
+
+	if (empty($_POST['prenom'])) {
+		$errors['prenom'] = "Vous n'avez pas entré votre prenom";
+	}
+
+	if (empty($_POST['age'])) {
+		$errors['age'] = "Vous n'avez pas entré votre age";
+	}
+
+	if (empty($errors)) {
+		$req = $pdo->prepare('INSERT INTO users SET username=?, password=?,email=?,nom=?,prenom=?,age=?,sexe=?,poids=?,fume=?,drugs=?,sport=?,dodo=?');
+
+		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+
+		$req->execute([$_POST['username'], $password, $_POST['email'], $_POST['nom'], $_POST['prenom'], $_POST['age'], $_POST['sexe'], $_POST['poids'], $_POST['fume'], $_POST['drugs'], $_POST['sport'], $_POST['dodo']]);
+		$_SESSION['flash']['success'] = "Votre compte a été créé";
+	}
+}
 
 
 ?>
 
 
 <!DOCTYPE html>
-  <?php include("header.php"); ?>
+<?php include("header.php"); ?>
 
 
-<?php if (!empty($errors)):?>
+<?php if (!empty($errors)) : ?>
 
-<?php $_SESSION['flash']['error'] = "Vous n'avez pas rempli le formulaire correctement";?>
+	<?php $_SESSION['flash']['error'] = "Vous n'avez pas rempli le formulaire correctement"; ?>
 	<ul>
-		<?php foreach ($errors as $error): ?>
+		<?php foreach ($errors as $error) : ?>
 			<li><?= $error; ?></li>
 		<?php endforeach; ?>
 	</ul>
-</div>
+	</div>
 
 <?php endif; ?>
 <center>
-	<form action="" method="post">
-		<br>
-		<div class="center">
-			<input type="text" name="nom" title="nom" placeholder="Nom" required><br>
-		</div>
-		<br>
-		<div class="center">
-			<input type="text" name="prenom" title="prenom" placeholder="Prenom" required><br>
-		</div>
-		<br>
-		<div class="center">
-			<input type="number" name="age" title="age" placeholder="Age" required<br>
-		</div>
-		<br>
-		<div class="center">
+	<div class="container">
+		<form action="" method="post" class="form-group">
+			<br>
+			<div class="center">
+				<input type="text" name="nom" title="nom" placeholder="Nom" required><br>
+			</div>
+			<br>
+			<div class="center">
+				<input type="text" name="prenom" title="prenom" placeholder="Prenom" required><br>
+			</div>
+			<br>
+			<div class="center">
+				<input type="number" name="age" title="age" placeholder="Age" required<br>
+			</div>
+			<br>
+			<div class="center">
 				<select name="sexe" size="1">
-				<option value="" disabled selected>Sexe</option>
-				<option value="h">Homme</option>
-				<option value="f">Femme</option>
-			</select><br>
-		</div>
+					<option value="" disabled selected>Sexe</option>
+					<option value="h">Homme</option>
+					<option value="f">Femme</option>
+				</select>
+			</div>
+			<br>
+			<div class="center">
+				<input type="text" name="username" placeholder="Nom d'utilisateur"><br><br>
+			</div>
 
-		<div class="center">
-			<br> <input type="number" name="poids" placeholder="Poids" required ><br><br>
-		</div>
-		<br>
-		<div class="center">
-			<select name="fume" size="1">
-			<option value="" disabled selected>Cigarettes</option>
-				<option value="oui">Oui</option>
-				<option value="tps">De temps en temps</option>
-				<option value="non">Non</option>
-			</select>
-		</div>
-		<br>
-		<div class="center">
-			<select name="drugs" size="1">
-			<option value="" disabled selected>Drogue</option>
-				<option value="oui">Oui</option>
-				<option value="tps">De temps en temps</option>
-				<option value="non">Non</option>
-			</select>
-		</div>
-		<br>
-		<div class="center">
-			<select name="sport" size="1">
-				<option value="" disabled selected>Sport</option>
-				<option value="oui">Oui</option>
-				<option value="tps">De temps en temps</option>
-				<option value="non">Non</option>
-			</select>
-		</div>
-		<br>
-		<div class="center">
-			<select name="dodo" size="1">
-			<option value="" disabled selected>Sommeil</option>
-				<option value="insreg">Insomnie reguliere</option>
-				<option value="insrar">Insomnie rare</option>
-				<option value="revfreq">Reveil frequent</option>
-				<option value="bonsom">Bon sommeil</option>
-			</select>
-		</div>
-		<br>
-		<div class="center">
-			<input type="text" name="username" placeholder="Nom d'utilisateur"  ><br><br>
-		</div>
+			<div class="center">
+				<input type="Email" name="email" placeholder="Email"><br><br>
+			</div class="center">
 
-		<div class="center">
-			<input type="Email" name="email" placeholder="Email"  ><br><br>
-		</div class="center">
+			<div class="center">
+				<input type="password" name="password" placeholder="Mot de passe"><br><br>
+			</div class="center">
 
-		<div class="center">
-			<input type="password" name="password" placeholder="Mot de passe"  ><br><br>
-		</div class="center">
+			<div class="center">
+				<input type="password" name="conf" placeholder="Confirmation"><br><br>
+			</div>
 
-		<div class="center">
-			<input type="password" name="conf" placeholder="Confirmation"  ><br><br>
-		</div>
-
-			<button type="submit" >Envoyer vos informations</button>
-		</center>
-	</form>
+			<button type="submit">Envoyer vos informations</button>
+		</form>
+	</div>
+</center>
 </body>
+
 </html>

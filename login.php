@@ -29,24 +29,25 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])) 
 ?>
 
 <?php include("header.php"); ?>
+<center>
+	<h2>login</h2>
+	<div class="container">
+		<form action="" method="post" class="form-control">
+			<div>
+				<input type="text" name="username" placeholder="Utilisateur ou email" autofocus><br>
+			</div>
+			<div class="interligne">
+			</div>
+			<br>
+			<div>
+				<input type="password" name="password" placeholder="Mot de passe"><br>
+			</div>
+			<br>
+			<button type="submit" class="btn btn-primary">Se connecter</button>
 
-<h2>login</h2>
-<div class="container">
-	<form action="" method="post">
-		<div>
-			<input type="text" name="username" placeholder="Utilisateur ou email" autofocus><br>
-		</div>
-		<div class="interligne">
-		</div>
-		<br>
-		<div>
-			<input type="password" name="password" placeholder="Mot de passe"><br>
-		</div>
-		<br>
-		<button type="submit" class="btn btn-primary">Se connecter</button>
-
-	</form>
-</div>
+		</form>
+	</div>
+</center>
 </body>
 
 </html>

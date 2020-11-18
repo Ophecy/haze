@@ -1,0 +1,274 @@
+body /*Body style*/ {
+	background: White;
+	background: radial-gradient(circle at center, #ece9e6, #ffffff);
+	font-family: Montserrat, Raleway, Courier, monospace; /*Font (Courier New) with fallbacks (Courier, monospace fonts)*/
+	text-align: justify;
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	min-height: 100vh; /*Was set to 100% until recently. Now occupying 100% of the viewport (vh)*/
+	height: 100%;
+	flex: 1;
+	flex-wrap: wrap;
+}
+
+footer {
+	text-align: center;
+	padding: 20px;
+	align-items: end;
+	background: DarkGrey;
+	background: url("crossed_stripes.png");
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2) inset,
+		0 6px 20px 0 rgba(0, 0, 0, 0.19) inset;
+	color: LightGray;
+	flex: 0.1;
+}
+
+aside {
+	font-size: 0.8em;
+}
+
+nav {
+}
+
+#mainHeader {
+	background: Snow;
+	background: radial-gradient(
+		circle at center,
+		#085078,
+		#085078
+	); /*Venice Blue gradient*/
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-content: flex-start;
+	position: sticky;
+	top: 0px;
+}
+
+#mainContent header {
+}
+
+#menuPrincipal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	width: 600px;
+	margin: 5em auto;
+	flex-wrap: wrap;
+	flex: 1;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+}
+
+#menuSecondaire {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	flex: 0.3;
+	padding: 0 2em;
+	color: white;
+	font-family: Montserrat, Raleway, sans-serif;
+	text-transform: uppercase;
+}
+
+#menuSecondaire .element:hover {
+	text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.2),
+		-2px 2px 4px rgba(255, 255, 255, 0.2);
+}
+
+.card {
+	width: 250px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-align: center;
+	margin: 20px;
+}
+
+.card-container {
+	padding: 10px;
+}
+
+.card img {
+	width: 250px;
+	height: 150px;
+}
+
+.card p {
+	text-align: center;
+	text-indent: 0;
+}
+
+.card:hover {
+	box-shadow: 0 4px 8px 0 rgba(8, 80, 120, 0.5),
+		0 6px 20px 0 rgba(8, 80, 120, 0.49);
+	text-align: center;
+	margin: 20px;
+}
+
+.line-separator {
+	height: 60%;
+	width: 1px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2) inset,
+		0 3px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+nav li {
+	list-style: none;
+}
+
+p {
+	text-align: justify;
+	text-indent: 2em;
+}
+
+h1 {
+	font-family: Dosis, serif;
+	padding: 0 2em;
+	text-align: center;
+	color: white;
+	flex: 1;
+}
+
+h1 .lightText {
+	font-weight: lighter;
+}
+
+h2 {
+	text-align: justify;
+}
+
+h3 {
+	text-align: justify;
+}
+
+img {
+	display: block;
+	margin: 0 auto;
+}
+
+a[target="_blank"]:after {
+	content: url("ic_open_in_new_white_12dp_1x.png");
+	margin-left: 4px;
+}
+
+a.head:link {
+	color: white;
+	text-decoration: none;
+}
+
+a.head:visited {
+	color: white;
+	text-decoration: none;
+}
+
+a.head:hover {
+	color: white;
+	text-decoration: underline;
+}
+
+a.head:active {
+	color: white;
+	text-decoration: underline;
+}
+a:link {
+	color: black;
+	text-decoration: none;
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: black;
+	text-decoration: underline;
+}
+
+a:active {
+	color: black;
+	text-decoration: underline;
+}
+
+.nodisplay {
+	display: none;
+}
+
+fieldset {
+	width: 90%;
+	text-align: center;
+	border: 2px solid #085078;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	margin: auto;
+}
+
+#danger {
+	color: red;
+}
+
+.block {
+	/*margin: auto;*/
+	text-align: justify;
+	width: 200px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	height: 100px;
+	overflow: scroll;
+	border: 2px dashed black;
+	padding: 10px;
+}
+
+.conteneur {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.elem {
+	margin: 20px;
+}
+
+#appli {
+	margin: auto;
+}
+
+/* Material icons */
+.material-icons.md-12 {
+	font-size: 12px;
+}
+.material-icons.md-64 {
+	font-size: 64px;
+}
+.material-icons.md-128 {
+	font-size: 128px;
+}
+
+#logo {
+	display: inline-block;
+	width: 40px;
+	padding-right: 10px;
+	margin: none;
+}
+
+#ajouter {
+	display: block;
+	width: 150px;
+	line-height: 50px;
+	text-align: center;
+	vertical-align: middle;
+	background: url(boutonnoir.png) no-repeat;
+	color: white;
+	text-decoration: none;
+}
+
+#ajouter:hover {
+	background: url(boutonnoir2.png) no-repeat;
+}

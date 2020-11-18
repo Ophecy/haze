@@ -30,8 +30,8 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])) 
 
 <?php include("header.php"); ?>
 <center>
-	<h2>login</h2>
 	<div class="container">
+		<h2>login</h2>
 		<form action="" method="post" class="form-control">
 			<div>
 				<input type="text" name="username" placeholder="Utilisateur ou email" autofocus><br>

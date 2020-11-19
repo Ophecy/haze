@@ -59,11 +59,11 @@ if (!empty($_POST)) {
 	}
 
 	if (empty($errors)) {
-		$req = $pdo->prepare('INSERT INTO users SET username=?, password=?,email=?,nom=?,prenom=?,age=?,sexe=?,poids=?,fume=?,drugs=?,sport=?,dodo=?');
+		$req = $pdo->prepare('INSERT INTO users SET username=?, password=?,email=?,nom=?,prenom=?,age=?,sexe=?');
 
 		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-		$req->execute([$_POST['username'], $password, $_POST['email'], $_POST['nom'], $_POST['prenom'], $_POST['age'], $_POST['sexe'], $_POST['poids'], $_POST['fume'], $_POST['drugs'], $_POST['sport'], $_POST['dodo']]);
+		$req->execute([$_POST['username'], $password, $_POST['email'], $_POST['nom'], $_POST['prenom'], $_POST['age'], $_POST['sexe']]);
 		$_SESSION['flash']['success'] = "Votre compte a été créé";
 	}
 }

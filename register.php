@@ -97,7 +97,7 @@ if (!empty($_POST)) {
 			<input class="form-control" type="text" name="prenom" title="prenom" placeholder="Prenom" required><br>
 			<input class="form-control" type="number" name="age" title="age" placeholder="Age" required>
 			<br>
-			<select multiple class="form-control" name="sexe" size="1">
+			<select class="form-control" name="sexe" size="1">
 				<option value="" disabled selected>Sexe</option>
 				<option value="h">Homme</option>
 				<option value="f">Femme</option>

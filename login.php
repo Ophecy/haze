@@ -13,7 +13,7 @@ if (!empty($_POST) && !empty($_POST['username']) && !empty($_POST['password'])) 
 	$req->execute(['username' => $_POST['username']]);
 	$user = $req->fetch();
 	if ($user != false) {
-		var_dump($user);
+		// var_dump($user);
 		if (password_verify($_POST['password'], $user->password)) {
 			if (!isset($_SESSION)) {
 				session_start();

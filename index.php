@@ -40,7 +40,7 @@ header("Access-Control-Allow-Origin: *");
           $json = json_decode($content);
           echo '<div class="alert alert-danger" style="position: initial;">';
           echo "<p>le ";
-          echo date("d-m-Y \à h:i:s", $value->timestamp);
+          echo date("d-m-Y \à H:i:s", $value->timestamp);
           echo "</p>";
           echo "<p>";
           echo $json->message;

@@ -88,50 +88,34 @@ if (!empty($_POST)) {
 	</div>
 
 <?php endif; ?>
-<center>
-	<div class="container">
+<div class="d-flex justify-content-center">
+	<div class="w-50">
+
+		<h2>Register</h2>
 		<form action="" method="post" class="form-group">
+			<input class="form-control" type="text" name="nom" title="nom" placeholder="Nom" required><br>
+			<input class="form-control" type="text" name="prenom" title="prenom" placeholder="Prenom" required><br>
+			<input class="form-control" type="number" name="age" title="age" placeholder="Age" required>
 			<br>
-			<div class="center">
-				<input type="text" name="nom" title="nom" placeholder="Nom" required><br>
-			</div>
-			<br>
-			<div class="center">
-				<input class="form-control" type="text" name="prenom" title="prenom" placeholder="Prenom" required><br>
-			</div>
-			<br>
-			<div class="center">
-				<input class="form-control" type="number" name="age" title="age" placeholder="Age" required<br>
-			</div>
-			<br>
-			<div class="center">
-				<select class="form-control" name="sexe" size="1">
-					<option value="" disabled selected>Sexe</option>
-					<option value="h">Homme</option>
-					<option value="f">Femme</option>
-				</select>
-			</div>
-			<br>
-			<div class="center">
-				<input class="form-control" class="form-control" type="text" name="username" placeholder="Nom d'utilisateur"><br><br>
-			</div>
+			<select multiple class="form-control" name="sexe" size="1">
+				<option value="" disabled selected>Sexe</option>
+				<option value="h">Homme</option>
+				<option value="f">Femme</option>
+			</select>
 
-			<div class="center">
-				<input class="form-control" type="Email" name="email" placeholder="Email"><br><br>
-			</div class="center">
+			<br>
+			<input class="form-control" class="form-control" type="text" name="username" placeholder="Nom d'utilisateur"><br>
 
-			<div class="center">
-				<input class="form-control" class="form-control" type="password" name="password" placeholder="Mot de passe"><br><br>
-			</div class="center">
+			<input class="form-control" type="Email" name="email" placeholder="Email"><br>
 
-			<div class="center">
-				<input class="form-control" type="password" name="conf" placeholder="Confirmation"><br><br>
-			</div>
+			<input class="form-control" class="form-control" type="password" name="password" placeholder="Mot de passe"><br>
+
+			<input class="form-control" type="password" name="conf" placeholder="Confirmation"><br>
 
 			<button class="btn btn-primary mb-2" type="submit">Envoyer vos informations</button>
 		</form>
 	</div>
-</center>
+</div>
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php include 'header.php';
-include_once('inc/db.php');
+require('inc/db.php');
 $sql = "SELECT content from alert";
 $req = $pdo->query($sql);
 $alerts = $req->fetchAll();

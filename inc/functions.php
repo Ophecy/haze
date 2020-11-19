@@ -30,7 +30,6 @@ function save()
 		$req = "SELECT lastco FROM users WHERE id=$id";
 		$lastco = $pdo->query($req);
 		$lastco = $lastco->fetch();
-		//var_dump($lastco);
 		$lastco = $lastco->lastco;
 		$date = date('Ymd');
 

@@ -64,7 +64,7 @@ if (!empty($_POST)) {
 		$password = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
 		$req->execute([$_POST['username'], $password, $_POST['email'], $_POST['nom'], $_POST['prenom'], $_POST['age'], $_POST['sexe']]);
-		$_SESSION['auth'] = $user;
+		// $_SESSION['auth'] = $user;
 		$_SESSION['flash']['success'] = "Votre compte a été créé";
 	}
 }

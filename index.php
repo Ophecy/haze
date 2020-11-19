@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 require('inc/db.php');
-$sql = "SELECT content from alert";
+$sql = "SELECT content, timestamp from alert";
 $req = $pdo->query($sql);
 $alerts = $req->fetchAll();
 header("Access-Control-Allow-Origin: *");
@@ -35,14 +35,19 @@ header("Access-Control-Allow-Origin: *");
       <div>Alertes</div>
       <div>
         <?php
-            foreach ($alerts as $key => $value) {
-              $content = $value->content;
-              $json = json_decode($content);
-              echo '<div class="alert alert-danger" style="position: initial;">';
-              echo $json->message;
-              echo '</div>';
-            }
-            ?>
+        foreach ($alerts as $key => $value) {
+          $content = $value->content;
+          $json = json_decode($content);
+          echo '<div class="alert alert-danger" style="position: initial;">';
+          echo "<p>le ";
+          echo date("d-m-Y \à h:i:s", $value->timestamp);
+          echo "</p>";
+          echo "<p>";
+          echo $json->message;
+          echo "</p>";
+          echo '</div>';
+        }
+        ?>
       </div>
     </div>
   </div>

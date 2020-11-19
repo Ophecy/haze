@@ -97,15 +97,15 @@ if (!empty($_POST)) {
 			</div>
 			<br>
 			<div class="center">
-				<input type="text" name="prenom" title="prenom" placeholder="Prenom" required><br>
+				<input class="form-control" type="text" name="prenom" title="prenom" placeholder="Prenom" required><br>
 			</div>
 			<br>
 			<div class="center">
-				<input type="number" name="age" title="age" placeholder="Age" required<br>
+				<input class="form-control" type="number" name="age" title="age" placeholder="Age" required<br>
 			</div>
 			<br>
 			<div class="center">
-				<select name="sexe" size="1">
+				<select class="form-control" name="sexe" size="1">
 					<option value="" disabled selected>Sexe</option>
 					<option value="h">Homme</option>
 					<option value="f">Femme</option>
@@ -113,22 +113,22 @@ if (!empty($_POST)) {
 			</div>
 			<br>
 			<div class="center">
-				<input type="text" name="username" placeholder="Nom d'utilisateur"><br><br>
+				<input class="form-control" class="form-control" type="text" name="username" placeholder="Nom d'utilisateur"><br><br>
 			</div>
 
 			<div class="center">
-				<input type="Email" name="email" placeholder="Email"><br><br>
+				<input class="form-control" type="Email" name="email" placeholder="Email"><br><br>
 			</div class="center">
 
 			<div class="center">
-				<input type="password" name="password" placeholder="Mot de passe"><br><br>
+				<input class="form-control" class="form-control" type="password" name="password" placeholder="Mot de passe"><br><br>
 			</div class="center">
 
 			<div class="center">
-				<input type="password" name="conf" placeholder="Confirmation"><br><br>
+				<input class="form-control" type="password" name="conf" placeholder="Confirmation"><br><br>
 			</div>
 
-			<button type="submit">Envoyer vos informations</button>
+			<button class="btn btn-primary mb-2" type="submit">Envoyer vos informations</button>
 		</form>
 	</div>
 </center>

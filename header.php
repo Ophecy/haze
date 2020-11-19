@@ -25,7 +25,7 @@
 <!-- BODY -->
 
 <body>
-	<header id="mainHeader">
+	<header id="mainHeader" class="mb-5">
 		<a href="index.php" class='head'>
 			<div class="element">
 				<h1><img id="logo" src="images/logo.png" alt="Logo">Haze<span class="lightText">.com</span></h1>

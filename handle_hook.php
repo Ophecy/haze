@@ -1,6 +1,6 @@
 <pre>
 <?php
-$json = json_encode(file_get_contents('php://input'));
+$json = file_get_contents('php://input');
 if (strlen($json) < 10) die();
 
 include_once("inc/db.php");
